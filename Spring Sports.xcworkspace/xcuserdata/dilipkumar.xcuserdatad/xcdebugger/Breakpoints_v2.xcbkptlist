@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Spring Sports/logInPage.swift"
-            timestampString = "559913412.268846"
+            timestampString = "560074679.6013041"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "logInButton(_:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class admindDashBoard: UIViewController {
+class admindDashBoard: BaseViewController {
    
     @IBOutlet weak var myTableView: UITableView!
     var cellArray: [String] = []
@@ -20,14 +20,17 @@ class admindDashBoard: UIViewController {
    
     
     // Table cell Info
-    var b_id: [String] = ["1", "2", "3"]
-    var name: [String] = ["Dilip","Ajay", "Deepak"]
-    var bookingDate: [String] = ["Today", "Tomorrow", "day after Tomo"]
-    var duration: [String] = ["54", "34", "30"]
+    var b_id: [String] = []
+    var name: [String] = []
+    var bookingDate: [String] = []
+    var duration: [String] = []
+    
+    // Table Header
+    var headerArray = ["I_ID"]
     
     
     override func viewWillAppear(_ animated: Bool) {
-
+        
     }
 
 
@@ -35,7 +38,8 @@ class admindDashBoard: UIViewController {
         super.viewDidLoad()
             self.loadData()
         
-        
+        self.addSlideMenuButton()
+
         print(cellArray)
     }
     
@@ -43,8 +47,9 @@ class admindDashBoard: UIViewController {
   
 
     func loadData() {
-        
-        Alamofire.request("http://52.66.132.37/booking.springsportsacademy.com/api/dashboard", method: .post).responseJSON
+        let parameters = ["user_id" : 1]
+
+        Alamofire.request("http://52.66.132.37/booking.springsportsacademy.com/api/dashboard", method: .post, parameters: parameters).responseJSON
             { response in
                 
                 let json: AnyObject
@@ -54,7 +59,7 @@ class admindDashBoard: UIViewController {
                     print("Error in catch")
                     return
                 }
-                //                print(json)
+                                print(json)
                 guard let collectionData = json["data"] as? NSDictionary else {
                     print("Could not get route")
                     return
@@ -118,9 +123,16 @@ class admindDashBoard: UIViewController {
                     return
                 }
                 for dic in tableData{
-                    guard let title = dic["b_id"] as? NSString else { return }
-                    guard let bid = dic["f_id"] as? NSString else { return }
-                    self.bIdData.append(title as String)
+                    guard let bID = dic["b_id"] as? NSString else { return }
+                    guard let name = dic["name"] as? NSString else { return }
+                    guard let bookingDate = dic["booking_date"] as? NSString else {return}
+                    guard let ducration = dic["game_duration"] as? NSString else {return}
+                    
+                    self.b_id.append(bID as String)
+                    self.name.append(name as String)
+                    self.bookingDate.append(bookingDate as String)
+                    self.duration.append(ducration as String)
+                    
                   
                 }
                 DispatchQueue.main.async {
@@ -137,13 +149,32 @@ class admindDashBoard: UIViewController {
 }
 
 extension admindDashBoard: UICollectionViewDataSource, UICollectionViewDelegate, UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = Bundle.main.loadNibNamed("headerView", owner: self, options: nil)?.first as! headerView
+        headerView.ID.text = "ID"
+        headerView.name.text = "Name"
+        headerView.date.text = "Date"
+        headerView.duration.text = "Duration"
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return bIdData.count
+        return b_id.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellTable", for: indexPath)
-        cell.textLabel?.text = bIdData[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellTable", for: indexPath) as! AdminDBTCell
+        cell.b_id.text = b_id[indexPath.row]
+        cell.name.text = name[indexPath.row]
+        cell.bookingDate.text = bookingDate[indexPath.row]
+        cell.duration.text = duration[indexPath.row]
         return cell
     }
     

@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 
 class logInPage: UIViewController {
+    
 
     @IBOutlet weak var logInSegment: UISegmentedControl!
     @IBOutlet weak var forgotButtonOutlet: UIButton!
@@ -37,27 +38,31 @@ class logInPage: UIViewController {
         
         if logInSegment.selectedSegmentIndex == 0 {
             print("Admin selected")
+            var userNameAru = "username"
+        
             if (userName == "" || password == "") {
                 print("either pass or email is empty")
                 return
             }
             let Url = String(format: "http://52.66.132.37/booking.springsportsacademy.com/api/login/validate")
-            doLogIn(userName!, password!, Url)
+            doLogIn(userNameAru, userName!, password!, Url)
         } else if logInSegment.selectedSegmentIndex == 1 {
             print("user selected")
+            var userNameAru = "email"
+
             let Url = String(format: "http://52.66.132.37/booking.springsportsacademy.com/api/login/user_signin")
-            doLogIn(userName!, password!, Url)
+            doLogIn(userNameAru , userName!, password!, Url)
         }
        
        
     }
     
-    func doLogIn(_ userName : String, _ password : String, _ url: String) {
+    func doLogIn(_ userNameAru: String , _ userName : String, _ password : String, _ url: String) {
         
             let headers = [
                 "Content-Type": "application/x-www-form-urlencoded"
             ]
-            let parameters = ["username" : userName, "password" : password]
+            let parameters = [userNameAru : userName, "password" : password]
             Alamofire.request(url, method: .post, parameters: parameters).responseJSON
                 { response in
                     
@@ -75,7 +80,14 @@ class logInPage: UIViewController {
                     }
                     print(msgData)
                     if msgData == "success" {
-                                    self.performSegue(withIdentifier: "homePage", sender: nil)
+                        if userNameAru == "username" {
+                            self.performSegue(withIdentifier: "goToAdminDB", sender: nil)
+
+                            
+                        } else if userNameAru == "email" {
+                            self.performSegue(withIdentifier: "homePage", sender: nil)
+
+                        }
                     } else {
                         print("Log in id pass in incorrect")
                     }

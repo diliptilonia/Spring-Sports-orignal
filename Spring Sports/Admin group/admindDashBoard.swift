@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SVProgressHUD
 
 class admindDashBoard: BaseViewController {
    
@@ -39,8 +40,9 @@ class admindDashBoard: BaseViewController {
             self.loadData()
         
         self.addSlideMenuButton()
-
-        print(cellArray)
+        
+        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
+        SVProgressHUD.show()
     }
     
 
@@ -110,6 +112,7 @@ class admindDashBoard: BaseViewController {
                     print(numberOfaprroved)
                     self.cellArray.append(numberOfaprroved as! String)
                     print("thisis approoved \(self.cellArray)")
+                    SVProgressHUD.dismiss()
                     DispatchQueue.main.async {
                         self.collectionView.reloadData()
                         print("thisiss after reload \(self.cellArray)")
@@ -123,10 +126,10 @@ class admindDashBoard: BaseViewController {
                     return
                 }
                 for dic in tableData{
-                    guard let bID = dic["b_id"] as? NSString else { return }
-                    guard let name = dic["name"] as? NSString else { return }
+                    guard let bID = dic["name"] as? NSString else { return }
+                    guard let name = dic["ground"] as? NSString else { return }
                     guard let bookingDate = dic["booking_date"] as? NSString else {return}
-                    guard let ducration = dic["game_duration"] as? NSString else {return}
+                    guard let ducration = dic["status"] as? NSString else {return}
                     
                     self.b_id.append(bID as String)
                     self.name.append(name as String)
@@ -155,10 +158,10 @@ extension admindDashBoard: UICollectionViewDataSource, UICollectionViewDelegate,
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = Bundle.main.loadNibNamed("headerView", owner: self, options: nil)?.first as! headerView
-        headerView.ID.text = "ID"
-        headerView.name.text = "Name"
+        headerView.ID.text = "Name"
+        headerView.name.text = "Ground"
         headerView.date.text = "Date"
-        headerView.duration.text = "Duration"
+        headerView.duration.text = "Status"
         return headerView
     }
     

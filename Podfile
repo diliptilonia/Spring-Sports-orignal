@@ -4,5 +4,6 @@ target 'Spring Sports' do
   use_frameworks!
 
 	pod 'Alamofire'
+	pod 'SVProgressHUD'
 
 end

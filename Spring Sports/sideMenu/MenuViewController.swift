@@ -4,7 +4,7 @@
 //
 //  Created by Ashish on 21/09/15.
 //  Copyright (c) 2015 Kode. All rights reserved.
-//
+// 2c9fba
 
 import UIKit
 
@@ -41,7 +41,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tblMenuOptions.backgroundColor = UIColor.orange
+//        tblMenuOptions.backgroundColor = UIColor.orange
         tblMenuOptions.tableFooterView = UIView()
 //        tblMenuOptions.estimatedRowHeight = 77
         // Do any additional setup after loading the view.
@@ -120,7 +120,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return 1;
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 70
 
     }
  

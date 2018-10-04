@@ -77,7 +77,19 @@ class logInPage: UIViewController {
                         print("Error in catch")
                         return
                     }
-                    print(json)
+//                    print(json)
+                    guard let collectionData = json["data"] as? NSDictionary else {
+                        print("Could not get route")
+                        return
+                    }
+                                    print(collectionData)
+                    guard let userID = collectionData["user_id"] as? NSString else {
+                        print("Coun't get data")
+                        return
+                    }
+                    print(userID as String)
+                    let uID = userID as String
+                    UserDefaults.standard.set(uID, forKey: "userID")
                     guard let msgData = json["msg"] as? NSString else {
                         print("Could not get route")
                         return

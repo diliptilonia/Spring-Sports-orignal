@@ -49,7 +49,7 @@ extension USERS: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "userCell", for: indexPath)
-        cell.textLabel?.text = String(list[indexPath.row])
+//        cell.textLabel?.text = String(list[indexPath.row])
         return cell
     }
     

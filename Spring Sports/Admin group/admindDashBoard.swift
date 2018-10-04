@@ -53,7 +53,7 @@ class admindDashBoard: BaseViewController {
 
         Alamofire.request("http://52.66.132.37/booking.springsportsacademy.com/api/dashboard", method: .post, parameters: parameters).responseJSON
             { response in
-                
+                print("this is responce \(response)")
                 let json: AnyObject
                 do {
                     json = try JSONSerialization.jsonObject(with: response.data!, options: []) as AnyObject
@@ -61,7 +61,7 @@ class admindDashBoard: BaseViewController {
                     print("Error in catch")
                     return
                 }
-                                print(json)
+//                                print(json)
                 guard let collectionData = json["data"] as? NSDictionary else {
                     print("Could not get route")
                     return
@@ -80,7 +80,7 @@ class admindDashBoard: BaseViewController {
                     
                         self.cellArray.append(numberOfCancles as! String)
                 
-                    print(numberOfCancles)
+//                    print(numberOfCancles)
                     
                 }
                 
@@ -96,7 +96,7 @@ class admindDashBoard: BaseViewController {
                     let numberOfPending = totalPending[0]
                     self.cellArray.append(numberOfPending as! String)
 
-                    print(numberOfPending)
+//                    print(numberOfPending)
                     
                 }
                 

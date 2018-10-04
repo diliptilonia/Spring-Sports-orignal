@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		895EA7ED215E2E5800BB35D2 /* admindDashBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895EA7EC215E2E5800BB35D2 /* admindDashBoard.swift */; };
 		895EA7F1215E332600BB35D2 /* adminDBCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895EA7F0215E332600BB35D2 /* adminDBCCell.swift */; };
+		895F9E122165EF8B00FCBFCC /* detailVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895F9E112165EF8B00FCBFCC /* detailVCCell.swift */; };
 		89654D8A215CAB0800D6673F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89654D89215CAB0800D6673F /* AppDelegate.swift */; };
 		89654D8C215CAB0800D6673F /* logInPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89654D8B215CAB0800D6673F /* logInPage.swift */; };
 		89654D8F215CAB0800D6673F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89654D8D215CAB0800D6673F /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 		89767CDE2164A7910043C37C /* headerViewinBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89767CDC2164A7910043C37C /* headerViewinBooking.swift */; };
 		89767CDF2164A7910043C37C /* headerViewinBooking.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89767CDD2164A7910043C37C /* headerViewinBooking.xib */; };
 		89767CE12164A9F70043C37C /* bookingTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89767CE02164A9F60043C37C /* bookingTableCell.swift */; };
+		89767CE32164CC340043C37C /* bookingDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89767CE22164CC340043C37C /* bookingDetailVC.swift */; };
 		898DA4FD21648A77004FC554 /* userTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 898DA4FC21648A77004FC554 /* userTableCell.swift */; };
 		899DB24A2160C74C00E6DC40 /* AdminDBTCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899DB2492160C74C00E6DC40 /* AdminDBTCell.swift */; };
 		899DB24D216136E700E6DC40 /* headerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899DB24B216136E700E6DC40 /* headerView.swift */; };
@@ -39,6 +41,7 @@
 		1428B118C37F869158E368E5 /* Pods-Spring Sports.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Spring Sports.release.xcconfig"; path = "Pods/Target Support Files/Pods-Spring Sports/Pods-Spring Sports.release.xcconfig"; sourceTree = "<group>"; };
 		895EA7EC215E2E5800BB35D2 /* admindDashBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = admindDashBoard.swift; sourceTree = "<group>"; };
 		895EA7F0215E332600BB35D2 /* adminDBCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adminDBCCell.swift; sourceTree = "<group>"; };
+		895F9E112165EF8B00FCBFCC /* detailVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailVCCell.swift; sourceTree = "<group>"; };
 		89654D86215CAB0800D6673F /* Spring Sports.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spring Sports.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89654D89215CAB0800D6673F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89654D8B215CAB0800D6673F /* logInPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logInPage.swift; sourceTree = "<group>"; };
@@ -52,6 +55,7 @@
 		89767CDC2164A7910043C37C /* headerViewinBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = headerViewinBooking.swift; sourceTree = "<group>"; };
 		89767CDD2164A7910043C37C /* headerViewinBooking.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = headerViewinBooking.xib; sourceTree = "<group>"; };
 		89767CE02164A9F60043C37C /* bookingTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookingTableCell.swift; sourceTree = "<group>"; };
+		89767CE22164CC340043C37C /* bookingDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookingDetailVC.swift; sourceTree = "<group>"; };
 		898DA4FC21648A77004FC554 /* userTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userTableCell.swift; sourceTree = "<group>"; };
 		899DB2492160C74C00E6DC40 /* AdminDBTCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDBTCell.swift; sourceTree = "<group>"; };
 		899DB24B216136E700E6DC40 /* headerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = headerView.swift; sourceTree = "<group>"; };
@@ -188,6 +192,8 @@
 				899DB27F216206A100E6DC40 /* BOOKING.swift */,
 				89767CE02164A9F60043C37C /* bookingTableCell.swift */,
 				89767CDC2164A7910043C37C /* headerViewinBooking.swift */,
+				89767CE22164CC340043C37C /* bookingDetailVC.swift */,
+				895F9E112165EF8B00FCBFCC /* detailVCCell.swift */,
 				89767CDD2164A7910043C37C /* headerViewinBooking.xib */,
 			);
 			path = BOOKING;
@@ -323,9 +329,11 @@
 				89767CE12164A9F70043C37C /* bookingTableCell.swift in Sources */,
 				899DB27A2162039800E6DC40 /* CUSTOMERS.swift in Sources */,
 				89654D8C215CAB0800D6673F /* logInPage.swift in Sources */,
+				895F9E122165EF8B00FCBFCC /* detailVCCell.swift in Sources */,
 				899DB2832162086000E6DC40 /* MANAGEGROUND.swift in Sources */,
 				89654D8A215CAB0800D6673F /* AppDelegate.swift in Sources */,
 				899DB280216206A100E6DC40 /* BOOKING.swift in Sources */,
+				89767CE32164CC340043C37C /* bookingDetailVC.swift in Sources */,
 				89654DA0215DC85100D6673F /* tableCellData.swift in Sources */,
 				89654D9C215CF32F00D6673F /* userHomePage.swift in Sources */,
 				899DB24D216136E700E6DC40 /* headerView.swift in Sources */,

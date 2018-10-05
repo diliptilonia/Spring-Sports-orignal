@@ -82,7 +82,7 @@ class logInPage: UIViewController {
                         print("Could not get route")
                         return
                     }
-                                    print(collectionData)
+//                                    print(collectionData)
                     guard let userID = collectionData["user_id"] as? NSString else {
                         print("Coun't get data")
                         return

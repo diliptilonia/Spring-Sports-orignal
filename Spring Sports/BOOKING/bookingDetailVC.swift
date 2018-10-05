@@ -78,7 +78,7 @@ class bookingDetailVC: UIViewController {
 
     func showStatus() {
         let parameters = ["bid": id]
-        Alamofire.request("http://52.66.132.37/booking.springsportsacademy.com/api/booking/view_booking_details", method: .post, parameters: parameters).responseJSON
+        Alamofire.request("http://52.66.132.37/booking.springsportsacademy.com/api/booking/view_booking_details/\(id)").responseJSON
             { response in
                 
                 let json: AnyObject
@@ -106,6 +106,49 @@ class bookingDetailVC: UIViewController {
     }
     
     @IBAction func approveButtonClicked(_ sender: UIButton) {
+        let parameters = ["user_id": userID, "auth_token" : authentiction,
+                          "booking_id" : id]
+        print(parameters)
+        Alamofire.request("http://52.66.132.37/booking.springsportsacademy.com/api/booking/approve_booking", method: .post, parameters: parameters).responseJSON
+            { response in
+                print("This is reponce in approvedButton \(response)")
+                let json: AnyObject
+                do {
+                    json = try JSONSerialization.jsonObject(with: response.data!, options: []) as AnyObject
+                } catch {
+                    print("Error in catch")
+                    return
+                }
+                print(json)
+                guard let didSuccess = json["success"] as? Int else {
+                    print("Coun't get data")
+                    return
+                }
+                print("Did success \(didSuccess)")
+                if didSuccess == 1 {
+                    let alert = UIAlertController(title: "Approved", message: "Approved successfully", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                        switch action.style{
+                        case .default:
+                            print("default")
+                            
+                        case .cancel:
+                            print("cancel")
+                            
+                        case .destructive:
+                            print("destructive")
+                            
+                            
+                        }}))
+                    self.present(alert, animated: true, completion: nil)
+                    print("Approved successed")
+                    self.approvedButtonOutlet.isHidden = true
+                } else {
+                    print("Did not successed approved")
+                }
+                
+        }
+        
         
     }
     
@@ -123,7 +166,7 @@ class bookingDetailVC: UIViewController {
                     print("Error in catch")
                     return
                 }
-                                print(json)
+//                                print(json)
     }
     }
     

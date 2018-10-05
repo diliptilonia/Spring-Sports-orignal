@@ -116,11 +116,11 @@ class BOOKING: BaseViewController {
                 SVProgressHUD.dismiss()
                 DispatchQueue.main.async {
                     self.mytable.reloadData()
-                    print(self.emailIDs)
-                    print(self.mobileNos)
-                    print(self.dates)
-                    print(self.times)
-                    print(self.Duration)
+//                    print(self.emailIDs)
+//                    print(self.mobileNos)
+//                    print(self.dates)
+//                    print(self.times)
+//                    print(self.Duration)
 
                 }
                 
@@ -159,7 +159,7 @@ extension BOOKING: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "bookingCell", for: indexPath) as! bookingTableCell
 //        cell.textLabel?.text = number[indexPath.row]
         
-        print(indexPath.row)
+//        print(indexPath.row)
         cell.bookedFor.text = bookedFor[indexPath.row]
         cell.ground.text = ground[indexPath.row]
         cell.status.text = status[indexPath.row]

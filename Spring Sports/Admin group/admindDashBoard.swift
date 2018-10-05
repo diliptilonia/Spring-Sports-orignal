@@ -53,7 +53,7 @@ class admindDashBoard: BaseViewController {
 
         Alamofire.request("http://52.66.132.37/booking.springsportsacademy.com/api/dashboard", method: .post, parameters: parameters).responseJSON
             { response in
-                print("this is responce \(response)")
+//                print("this is responce \(response)")
                 let json: AnyObject
                 do {
                     json = try JSONSerialization.jsonObject(with: response.data!, options: []) as AnyObject
@@ -109,13 +109,13 @@ class admindDashBoard: BaseViewController {
                 if let totalPrroved = approved_bookingData.value(forKey: "approved") as? NSArray
                 {
                     let numberOfaprroved = totalPrroved[0]
-                    print(numberOfaprroved)
+//                    print(numberOfaprroved)
                     self.cellArray.append(numberOfaprroved as! String)
-                    print("thisis approoved \(self.cellArray)")
+//                    print("thisis approoved \(self.cellArray)")
                     SVProgressHUD.dismiss()
                     DispatchQueue.main.async {
                         self.collectionView.reloadData()
-                        print("thisiss after reload \(self.cellArray)")
+//                        print("thisiss after reload \(self.cellArray)")
                     }
                     
                 }

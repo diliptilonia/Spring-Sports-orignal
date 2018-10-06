@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (4.7.3)
   - SVProgressHUD (2.2.5)
+  - TTSegmentedControl (0.4.7)
 
 DEPENDENCIES:
   - Alamofire
   - SVProgressHUD
+  - TTSegmentedControl
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - SVProgressHUD
+    - TTSegmentedControl
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  TTSegmentedControl: 422a8fab507a02a60050476d69d577052550f592
 
-PODFILE CHECKSUM: 603123e1466f66255bc68facece1d04b29998fe6
+PODFILE CHECKSUM: 15cbf361502187e2d2df1c84d65bd71cfc93d999
 
 COCOAPODS: 1.5.3

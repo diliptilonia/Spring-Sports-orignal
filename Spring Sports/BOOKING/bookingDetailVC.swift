@@ -119,7 +119,7 @@ class bookingDetailVC: UIViewController {
                     print("Error in catch")
                     return
                 }
-                print(json)
+//                print(json)
                 guard let didSuccess = json["success"] as? Int else {
                     print("Coun't get data")
                     return

@@ -10,6 +10,7 @@
 		895EA7ED215E2E5800BB35D2 /* admindDashBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895EA7EC215E2E5800BB35D2 /* admindDashBoard.swift */; };
 		895EA7F1215E332600BB35D2 /* adminDBCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895EA7F0215E332600BB35D2 /* adminDBCCell.swift */; };
 		895F9E122165EF8B00FCBFCC /* detailVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895F9E112165EF8B00FCBFCC /* detailVCCell.swift */; };
+		895F9E15216791B400FCBFCC /* addBookingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895F9E14216791B300FCBFCC /* addBookingVC.swift */; };
 		89654D8A215CAB0800D6673F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89654D89215CAB0800D6673F /* AppDelegate.swift */; };
 		89654D8C215CAB0800D6673F /* logInPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89654D8B215CAB0800D6673F /* logInPage.swift */; };
 		89654D8F215CAB0800D6673F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89654D8D215CAB0800D6673F /* Main.storyboard */; };
@@ -42,6 +43,7 @@
 		895EA7EC215E2E5800BB35D2 /* admindDashBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = admindDashBoard.swift; sourceTree = "<group>"; };
 		895EA7F0215E332600BB35D2 /* adminDBCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = adminDBCCell.swift; sourceTree = "<group>"; };
 		895F9E112165EF8B00FCBFCC /* detailVCCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailVCCell.swift; sourceTree = "<group>"; };
+		895F9E14216791B300FCBFCC /* addBookingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addBookingVC.swift; sourceTree = "<group>"; };
 		89654D86215CAB0800D6673F /* Spring Sports.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Spring Sports.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89654D89215CAB0800D6673F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89654D8B215CAB0800D6673F /* logInPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logInPage.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				899DB27F216206A100E6DC40 /* BOOKING.swift */,
 				89767CE02164A9F60043C37C /* bookingTableCell.swift */,
 				89767CDC2164A7910043C37C /* headerViewinBooking.swift */,
+				895F9E14216791B300FCBFCC /* addBookingVC.swift */,
 				89767CE22164CC340043C37C /* bookingDetailVC.swift */,
 				895F9E112165EF8B00FCBFCC /* detailVCCell.swift */,
 				89767CDD2164A7910043C37C /* headerViewinBooking.xib */,
@@ -218,7 +221,7 @@
 				89654D82215CAB0800D6673F /* Sources */,
 				89654D83215CAB0800D6673F /* Frameworks */,
 				89654D84215CAB0800D6673F /* Resources */,
-				E29B64EFD5240F79BFFD6D81 /* [CP] Embed Pods Frameworks */,
+				BF04712DF40DA01A897EFE08 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -296,7 +299,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E29B64EFD5240F79BFFD6D81 /* [CP] Embed Pods Frameworks */ = {
+		BF04712DF40DA01A897EFE08 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -305,11 +308,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Spring Sports/Pods-Spring Sports-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/TTSegmentedControl/TTSegmentedControl.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTSegmentedControl.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -333,6 +338,7 @@
 				899DB2832162086000E6DC40 /* MANAGEGROUND.swift in Sources */,
 				89654D8A215CAB0800D6673F /* AppDelegate.swift in Sources */,
 				899DB280216206A100E6DC40 /* BOOKING.swift in Sources */,
+				895F9E15216791B400FCBFCC /* addBookingVC.swift in Sources */,
 				89767CE32164CC340043C37C /* bookingDetailVC.swift in Sources */,
 				89654DA0215DC85100D6673F /* tableCellData.swift in Sources */,
 				89654D9C215CF32F00D6673F /* userHomePage.swift in Sources */,

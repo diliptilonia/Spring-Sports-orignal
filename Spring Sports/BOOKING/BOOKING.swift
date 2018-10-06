@@ -128,7 +128,10 @@ class BOOKING: BaseViewController {
         
     }
 
-  
+    @IBAction func addBooking(_ sender: UIBarButtonItem) {
+        
+    }
+    
 
 }
 
@@ -182,6 +185,8 @@ extension BOOKING: UITableViewDataSource, UITableViewDelegate {
         self.navigationController?.pushViewController(vc!, animated: true)
 
     }
+    
+    
     
     
 }

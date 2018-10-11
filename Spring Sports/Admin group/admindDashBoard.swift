@@ -14,7 +14,7 @@ class admindDashBoard: BaseViewController {
    
     @IBOutlet weak var myTableView: UITableView!
     var cellArray: [String] = []
-    var cellTitleArray: [String] = ["Total Cancelled", "Total Pending", "Total Approved"]
+    var cellTitleArray: [String] = ["Total Cancelled", "Total Pending", "Total Approved", ""]
     var cellTableData: [tableData] = []
     var bIdData: [String] = []
     @IBOutlet weak var collectionView: UICollectionView!
@@ -36,6 +36,10 @@ class admindDashBoard: BaseViewController {
 
 
     override func viewDidLoad() {
+        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.1618602872, green: 0.6446843743, blue: 0.741151154, alpha: 1)
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+
         super.viewDidLoad()
             self.loadData()
         
@@ -112,6 +116,7 @@ class admindDashBoard: BaseViewController {
 //                    print(numberOfaprroved)
                     self.cellArray.append(numberOfaprroved as! String)
 //                    print("thisis approoved \(self.cellArray)")
+                    self.cellArray.append("")
                     SVProgressHUD.dismiss()
                     DispatchQueue.main.async {
                         self.collectionView.reloadData()
@@ -135,8 +140,6 @@ class admindDashBoard: BaseViewController {
                     self.name.append(name as String)
                     self.bookingDate.append(bookingDate as String)
                     self.duration.append(ducration as String)
-                    
-                  
                 }
                 DispatchQueue.main.async {
                     self.myTableView.reloadData()
@@ -181,14 +184,25 @@ extension admindDashBoard: UICollectionViewDataSource, UICollectionViewDelegate,
         return cell
     }
     
-    
-    // MARK: Collection view Methods 
+//    func colorForIndex(index: Int) -> UIColor {
+//        let itemCount = b_id.count - 1
+//        let color = (CGFloat(index) / CGFloat(itemCount)) * 1.0
+//        return UIColor(red: 1.0, green: color, blue: 0.0, alpha: 1.0)
+//    }
+//
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.lightGray
+    }
+    // MARK: Collection view Methods
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cellArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! adminDBCCell
+        cell.layer.borderWidth = 2.0
+        cell.layer.borderColor = #colorLiteral(red: 0.1450980392, green: 0.5803921569, blue: 0.6862745098, alpha: 1)
+        cell.backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
         cell.states.text = cellArray[indexPath.row]
         cell.titles.text = cellTitleArray[indexPath.row]
         return cell

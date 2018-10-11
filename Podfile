@@ -6,7 +6,7 @@ target 'Spring Sports' do
 	pod 'Alamofire'
 	pod 'SVProgressHUD'
 	pod 'TTSegmentedControl'
-
+	pod 'iOSDropDown'
 
 
 end

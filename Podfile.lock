@@ -1,24 +1,28 @@
 PODS:
   - Alamofire (4.7.3)
+  - iOSDropDown (0.2.5)
   - SVProgressHUD (2.2.5)
   - TTSegmentedControl (0.4.7)
 
 DEPENDENCIES:
   - Alamofire
+  - iOSDropDown
   - SVProgressHUD
   - TTSegmentedControl
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - iOSDropDown
     - SVProgressHUD
     - TTSegmentedControl
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  iOSDropDown: 7f67cd0bb3421774f79ba9376700ac6949eb3098
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TTSegmentedControl: 422a8fab507a02a60050476d69d577052550f592
 
-PODFILE CHECKSUM: 15cbf361502187e2d2df1c84d65bd71cfc93d999
+PODFILE CHECKSUM: 9128c66682268d66740c246d345cb9c184e8a51e
 
 COCOAPODS: 1.5.3

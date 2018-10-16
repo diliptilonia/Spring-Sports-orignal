@@ -53,9 +53,11 @@ class admindDashBoard: BaseViewController {
   
 
     func loadData() {
-        let parameters = ["user_id" : 1]
+        let defaults = UserDefaults.standard
+       var userID = defaults.string(forKey: "userID")!
+        let parameters = ["user_id" : Int(userID)]
 
-        Alamofire.request("http://52.66.132.37/booking.springsportsacademy.com/api/dashboard", method: .post, parameters: parameters).responseJSON
+        Alamofire.request("\(apiUrl)" + "api/dashboard", method: .post, parameters: parameters).responseJSON
             { response in
 //                print("this is responce \(response)")
                 let json: AnyObject

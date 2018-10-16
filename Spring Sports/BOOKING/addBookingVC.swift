@@ -124,7 +124,7 @@ class addBookingVC: UIViewController {
     
     // Parsing Data
  func loadData() {
-        Alamofire.request("http://52.66.132.37/booking.springsportsacademy.com/api/booking/get_users_list", method: .post).responseJSON
+        Alamofire.request("\(apiUrl)" + "api/booking/get_users_list", method: .post).responseJSON
             { response in
                 print(response.result)
                 let json: AnyObject
@@ -180,7 +180,7 @@ class addBookingVC: UIViewController {
         
         let parameters = ["user_id" : Int(userID)]
         
-        Alamofire.request("http://52.66.132.37/booking.springsportsacademy.com/api/booking/get_ground_list", method: .post, parameters: parameters).responseJSON
+        Alamofire.request("\(apiUrl)" + "api/booking/get_ground_list", method: .post, parameters: parameters).responseJSON
             { response in
                 print(response.result)
                 let json: AnyObject
@@ -239,7 +239,7 @@ class addBookingVC: UIViewController {
                           "ground_name": "2",
                           "duration_of_game": "60"]
         
-        Alamofire.request("http://52.66.132.37/booking.springsportsacademy.com/api/booking/get_selected_date_time", method: .post, parameters: parameters).responseJSON
+        Alamofire.request("\(apiUrl)" + "api/booking/get_selected_date_time", method: .post, parameters: parameters).responseJSON
             { response in
                 print(response.result)
                 let json: AnyObject
@@ -325,14 +325,16 @@ class addBookingVC: UIViewController {
   
     
     @IBAction func submitButtonTapped(_ sender: UIButton) {
-        let parameters = ["user_id": "1",
+        let defaults = UserDefaults.standard
+        userID = defaults.string(forKey: "userID")!
+        let parameters = ["user_id": userID,
                           "customer": "625",
                           "ground_name": "2",
                           "start_date": "10/10/2018",
                           "timeslots": "4",
                           "duration_of_game": "60"]
 
-        Alamofire.request("http://52.66.132.37/booking.springsportsacademy.com/api/booking/save_booking", method: .post, parameters: parameters).responseJSON
+        Alamofire.request("\(apiUrl)" + "api/booking/save_booking", method: .post, parameters: parameters).responseJSON
             { response in
                 print(response.result)
                 let json: AnyObject

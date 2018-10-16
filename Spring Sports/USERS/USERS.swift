@@ -22,7 +22,7 @@ class USERS: BaseViewController {
     }
     
     func loadData() {
-        Alamofire.request("http://52.66.132.37/booking.springsportsacademy.com/api/booking/get_users_list", method: .post).responseJSON { responce in
+        Alamofire.request("\(apiUrl)" + "api/booking/get_users_list", method: .post).responseJSON { responce in
             let json: AnyObject
             do {
                 json = try JSONSerialization.jsonObject(with: responce.data!, options: []) as AnyObject

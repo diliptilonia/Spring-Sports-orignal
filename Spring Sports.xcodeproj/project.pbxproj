@@ -34,6 +34,10 @@
 		899DB27D216204E800E6DC40 /* CALENDER.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899DB27C216204E700E6DC40 /* CALENDER.swift */; };
 		899DB280216206A100E6DC40 /* BOOKING.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899DB27F216206A100E6DC40 /* BOOKING.swift */; };
 		899DB2832162086000E6DC40 /* MANAGEGROUND.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899DB2822162086000E6DC40 /* MANAGEGROUND.swift */; };
+		89C716142170A77800C2798E /* calendarCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C716132170A77800C2798E /* calendarCVC.swift */; };
+		89C716162170ADEF00C2798E /* bookedHourVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C716152170ADEF00C2798E /* bookedHourVC.swift */; };
+		89C716182170C70C00C2798E /* bookedHourTCC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C716172170C70C00C2798E /* bookedHourTCC.swift */; };
+		89C7161A2171B4F700C2798E /* hourBooking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C716192171B4F700C2798E /* hourBooking.swift */; };
 		D9FE4D80D553500DD46C0CB5 /* Pods_Spring_Sports.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923BBBF5DEFE46C6A9EDC3F8 /* Pods_Spring_Sports.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +73,10 @@
 		899DB27C216204E700E6DC40 /* CALENDER.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALENDER.swift; sourceTree = "<group>"; };
 		899DB27F216206A100E6DC40 /* BOOKING.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BOOKING.swift; sourceTree = "<group>"; };
 		899DB2822162086000E6DC40 /* MANAGEGROUND.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MANAGEGROUND.swift; sourceTree = "<group>"; };
+		89C716132170A77800C2798E /* calendarCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = calendarCVC.swift; sourceTree = "<group>"; };
+		89C716152170ADEF00C2798E /* bookedHourVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookedHourVC.swift; sourceTree = "<group>"; };
+		89C716172170C70C00C2798E /* bookedHourTCC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookedHourTCC.swift; sourceTree = "<group>"; };
+		89C716192171B4F700C2798E /* hourBooking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = hourBooking.swift; sourceTree = "<group>"; };
 		923BBBF5DEFE46C6A9EDC3F8 /* Pods_Spring_Sports.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Spring_Sports.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -184,6 +192,10 @@
 			isa = PBXGroup;
 			children = (
 				899DB27C216204E700E6DC40 /* CALENDER.swift */,
+				89C716132170A77800C2798E /* calendarCVC.swift */,
+				89C716152170ADEF00C2798E /* bookedHourVC.swift */,
+				89C716172170C70C00C2798E /* bookedHourTCC.swift */,
+				89C716192171B4F700C2798E /* hourBooking.swift */,
 			);
 			path = CALENDER;
 			sourceTree = "<group>";
@@ -307,6 +319,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Spring Sports/Pods-Spring Sports-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/TTSegmentedControl/TTSegmentedControl.framework",
 				"${BUILT_PRODUCTS_DIR}/iOSDropDown/iOSDropDown.framework",
@@ -314,6 +327,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TTSegmentedControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iOSDropDown.framework",
@@ -330,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89C716162170ADEF00C2798E /* bookedHourVC.swift in Sources */,
 				899DB24A2160C74C00E6DC40 /* AdminDBTCell.swift in Sources */,
 				899DB2732161EEF100E6DC40 /* MenuViewController.swift in Sources */,
 				899DB2742161EEF100E6DC40 /* BaseViewController.swift in Sources */,
@@ -339,8 +354,10 @@
 				895F9E122165EF8B00FCBFCC /* detailVCCell.swift in Sources */,
 				899DB2832162086000E6DC40 /* MANAGEGROUND.swift in Sources */,
 				89654D8A215CAB0800D6673F /* AppDelegate.swift in Sources */,
+				89C716142170A77800C2798E /* calendarCVC.swift in Sources */,
 				899DB280216206A100E6DC40 /* BOOKING.swift in Sources */,
 				895F9E15216791B400FCBFCC /* addBookingVC.swift in Sources */,
+				89C7161A2171B4F700C2798E /* hourBooking.swift in Sources */,
 				89767CE32164CC340043C37C /* bookingDetailVC.swift in Sources */,
 				89654DA0215DC85100D6673F /* tableCellData.swift in Sources */,
 				89654D9C215CF32F00D6673F /* userHomePage.swift in Sources */,
@@ -349,6 +366,7 @@
 				89767CDE2164A7910043C37C /* headerViewinBooking.swift in Sources */,
 				899DB277216200D800E6DC40 /* USERS.swift in Sources */,
 				89654D9E215CFFD600D6673F /* homePageCCell.swift in Sources */,
+				89C716182170C70C00C2798E /* bookedHourTCC.swift in Sources */,
 				895EA7F1215E332600BB35D2 /* adminDBCCell.swift in Sources */,
 				898DA4FD21648A77004FC554 /* userTableCell.swift in Sources */,
 				895EA7ED215E2E5800BB35D2 /* admindDashBoard.swift in Sources */,
@@ -502,6 +520,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 6AN33TZ8MP;
 				INFOPLIST_FILE = "Spring Sports/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -523,6 +542,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 6AN33TZ8MP;
 				INFOPLIST_FILE = "Spring Sports/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -36,9 +36,8 @@ class BOOKING: BaseViewController {
     
     
     func loadData() {
-        let parameters = ["user_id" : 1]
         
-        Alamofire.request("http://52.66.132.37/booking.springsportsacademy.com/api/booking", method: .post).responseJSON
+        Alamofire.request("\(apiUrl)" + "api/booking", method: .post).responseJSON
             { response in
                 print(response.result)
                 let json: AnyObject

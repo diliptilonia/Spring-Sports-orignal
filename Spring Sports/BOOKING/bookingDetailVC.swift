@@ -37,6 +37,7 @@ class bookingDetailVC: UIViewController {
     var userDetails = ["Name","Email-Id","Mobile","Ground","Date","Time","Duration"]
    
     override func viewWillAppear(_ animated: Bool) {
+        approvedByLab.isHidden = true
         approvedButtonOutlet.isHidden = true
         if status == "cancelled" {
             statusButtonOutlet.isHidden = true
@@ -78,7 +79,7 @@ class bookingDetailVC: UIViewController {
 
     func showStatus() {
         let parameters = ["bid": id]
-        Alamofire.request("http://52.66.132.37/booking.springsportsacademy.com/api/booking/view_booking_details/\(id)").responseJSON
+        Alamofire.request("\(apiUrl)" + "api/booking/view_booking_details/\(id)").responseJSON
             { response in
                 
                 let json: AnyObject
@@ -109,7 +110,7 @@ class bookingDetailVC: UIViewController {
         let parameters = ["user_id": userID, "auth_token" : authentiction,
                           "booking_id" : id]
         print(parameters)
-        Alamofire.request("http://52.66.132.37/booking.springsportsacademy.com/api/booking/approve_booking", method: .post, parameters: parameters).responseJSON
+        Alamofire.request("\(apiUrl)" + "api/booking/approve_booking", method: .post, parameters: parameters).responseJSON
             { response in
                 print("This is reponce in approvedButton \(response)")
                 let json: AnyObject
@@ -156,7 +157,7 @@ class bookingDetailVC: UIViewController {
         let parameters = ["user_id": userID, "auth_token" : authentiction,
             "booking_id" : id]
         print(parameters)
-        Alamofire.request("http://52.66.132.37/booking.springsportsacademy.com/api/booking/cancel_booking", method: .post, parameters: parameters).responseJSON
+        Alamofire.request("\(apiUrl)" + "api/booking/cancel_booking", method: .post, parameters: parameters).responseJSON
             { response in
                 print(response)
                 let json: AnyObject

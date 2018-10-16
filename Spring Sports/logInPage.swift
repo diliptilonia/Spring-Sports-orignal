@@ -8,10 +8,13 @@
 
 import UIKit
 import Alamofire
+var apiUrl = "http://booking.springsportsacademy.com/"
 
 class logInPage: UIViewController {
     
 
+    @IBOutlet weak var logInBGFram: UIImageView!
+    
     @IBOutlet weak var logInSegment: UISegmentedControl!
     @IBOutlet weak var forgotButtonOutlet: UIButton!
     @IBOutlet weak var emailTF: UITextField!
@@ -25,7 +28,13 @@ class logInPage: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(logInPage.handleTap(_:)))
+        tapGR.delegate = self
+        tapGR.numberOfTapsRequired = 2
+        view.addGestureRecognizer(tapGR)
         hideKeyBoard()
+        
+        
         
         let attributeString = NSMutableAttributedString(string: "Forgot Password?",
                                                         attributes: yourAttributes)
@@ -48,13 +57,13 @@ class logInPage: UIViewController {
                 print("either pass or email is empty")
                 return
             }
-            let Url = String(format: "http://52.66.132.37/booking.springsportsacademy.com/api/login/validate")
+            let Url = String(format: "\(apiUrl)" + "api/login/validate")
             doLogIn(userNameAru, userName!, password!, Url)
         } else if logInSegment.selectedSegmentIndex == 1 {
             print("user selected")
             var userNameAru = "email"
 
-            let Url = String(format: "http://52.66.132.37/booking.springsportsacademy.com/api/login/user_signin")
+            let Url = String(format: "\(apiUrl)" + "api/login/user_signin")
             doLogIn(userNameAru , userName!, password!, Url)
         }
        
@@ -151,6 +160,26 @@ extension String {
     }
 }
     
-    
+
+extension logInPage: UIGestureRecognizerDelegate {
+    @objc func handleTap(_ gesture: UITapGestureRecognizer){
+        print("doubletapped")
+        
+        let alert = UIAlertController(title: "Select Server", message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Local", style: .default, handler: { action in
+           print("You did select local")
+            apiUrl = "http://52.66.132.37/booking.springsportsacademy.com/"
+        }))
+        
+        
+        alert.addAction(UIAlertAction(title: "live", style: .default, handler: { action in
+             print("You did select live")
+            apiUrl = "http://booking.springsportsacademy.com/"
+            
+        }))
+        
+        self.present(alert, animated: true)
+    }
+}
 
 

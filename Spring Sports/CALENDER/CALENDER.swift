@@ -63,15 +63,65 @@ extension CALENDER: UICollectionViewDataSource, UICollectionViewDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let st = UIStoryboard(name: "Main", bundle: nil)
-        let vc = st.instantiateViewController(withIdentifier :"bookedHourVC") as! bookedHourVC
-        vc.time = hours[indexPath.row]
-        vc.date = dateLabel.text!
-        vc.s_time = s_time[indexPath.row]
-       
-        navigationController?.pushViewController(vc, animated: true)
+        
+            
+//        DispatchQueue.main.async {
+//            <#code#>
+//        }
+     
+        print("This is called didselected")
+            let defaults = UserDefaults.standard
+            var userID = defaults.string(forKey: "userID")!
+            let parameters = ["user_id" : Int(userID),
+                              "date" : self.dateLabel.text!,
+                              "time" : self.hours[indexPath.row],
+                              "start_time": self.s_time[indexPath.row]
+                ] as [String : Any]
+            print(parameters)
+            Alamofire.request("http://booking.springsportsacademy.com/api/booking/calendar", method: .post, parameters: parameters).responseJSON
+                { response in
+                    print(response.result)
+                    let json: AnyObject
+                    do {
+                        json = try JSONSerialization.jsonObject(with: response.data!, options: []) as AnyObject
+                    } catch {
+                        print("Error in catch")
+                        return
+                    }
+                                    print(json)
+                    guard let isthereData = json["success"] as? Int else {
+                        print("Coun't get data in table data")
+                        return
+                    }
+                    print(isthereData)
+                    if isthereData == 0 {
+                        print("There is not Data")
+                        DispatchQueue.main.async {
+                            self.showAlert(message: "No Booking in This Hour")
+                        }
+                    } else {
+                        let st = UIStoryboard(name: "Main", bundle: nil)
+                        let vc = st.instantiateViewController(withIdentifier :"bookedHourVC") as! bookedHourVC
+                        vc.time = self.hours[indexPath.row]
+                        vc.date = self.dateLabel.text!
+                        vc.s_time = self.s_time[indexPath.row]
+                        
+                        self.navigationController?.pushViewController(vc, animated: true)
+                        }
+            
+
     }
     
     
 }
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true)
+    }
 
+}

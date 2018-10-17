@@ -52,6 +52,8 @@ class addBookingVC: UIViewController {
 //    @IBOutlet weak var textField2: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyBoard()
+
 //        self.loadTimeSlot()
 
       duration.optionArray = durationList
@@ -174,6 +176,9 @@ class addBookingVC: UIViewController {
     
     // Load Ground Names
     func loadGroundNames(_ customerIdIndex: Int) {
+        DispatchQueue.main.async {
+            self.txtDatePicker.isHidden = true
+        }
         print("Customer id index \(customerIDs[customerIdIndex])")
         let defaults = UserDefaults.standard
         userID = defaults.string(forKey: "userID")!
@@ -223,6 +228,7 @@ class addBookingVC: UIViewController {
                 self.groundNameTF.optionIds = self.size
                 self.groundNameTF.didSelect{(selectedText , index ,id) in
                     print("Selected String: \(selectedText) \n index: \(index)")
+                    self.txtDatePicker.isHidden = false
                     // self.groundNameTF.isSearchEnable = true
                     var idIndex = self.groundNames.index(of: "\(selectedText)")
 //                    print(self.groundIDs[idIndex!])
@@ -348,6 +354,16 @@ class addBookingVC: UIViewController {
         }
     }
     
+}
+
+extension addBookingVC {
+    public func hideKeyBoard() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addBookingVC.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
 
 

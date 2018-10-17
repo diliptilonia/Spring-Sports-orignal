@@ -76,6 +76,7 @@ class logInPage: UIViewController {
                 "Content-Type": "application/x-www-form-urlencoded"
             ]
             let parameters = [userNameAru : userName, "password" : password]
+       
             Alamofire.request(url, method: .post, parameters: parameters).responseJSON
                 { response in
                     
